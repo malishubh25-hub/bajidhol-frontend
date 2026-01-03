@@ -3,7 +3,7 @@ import axios from "axios";
 import "./UserRegister.css";
 import { useNavigate } from "react-router-dom";
 
-const UserRegistration = () => {
+const Register = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -118,7 +118,7 @@ const UserRegistration = () => {
   e.preventDefault();
   try {
     const res = await axios.post(
-      "http://localhost:2509/api/user/login/saveUserLogin",
+      "http://localhost:2509/api/user/registration",
       formData
     );
 
@@ -135,6 +135,22 @@ const UserRegistration = () => {
     <div className="registration-page">
       <div className="registration-container">
         <h2>🎶 Dhol Tasha Pathak Registration 🎶</h2>
+
+        <button
+  type="button"
+  onClick={() => navigate("/")}
+  style={{
+    marginBottom: "15px",
+    background: "transparent",
+    border: "none",
+    color: "#007bff",
+    cursor: "pointer",
+    fontSize: "14px"
+  }}
+>
+  ← Back to Login
+</button>
+
 
         <form className="registration-form" onSubmit={handleSubmit}>
 
@@ -361,4 +377,4 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export default Register;
